@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="movie-select">
+      <option value="1">Action</option>
+      <option value="2">Scary</option>
+      <option value="3">Drama</option>
+    </select>
+    <input id="movie-btn" type="button" value="vis filmer" />
+
+    <div>
+      <ul id="movie-container"></ul>
+    </div>
+
+    <script>
+      var movieSelect = document.getElementById("movie-select");
+      var movieContainer = document.getElementById("movie-container");
+      var movieBtn = document.getElementById("movie-btn");
+
+      var movies = [
+        {
+          name: "Black Adam",
+          categorie: "Action",
+        },
+        {
+          name: "Halloween Ends",
+          categorie: "Scary",
+        },
+        {
+          name: "The Stranger",
+          categorie: "Drama",
+        },
+        {
+          name: "Terrifier 2",
+          categorie: "Action",
+        },
+        {
+          name: "Smile",
+          categorie: "Scary",
+        },
+      ];
+
+      function chooseMovie() {
+        var userMovie = movieSelect.value;
+        switch (userMovie) {
+          case "1":
+            movieContainer.innerHTML = "";
+            for (var i = 0; i < movies.length; i++) {
+              if (movies[i].categorie == "Action") {
+                movieContainer.innerHTML += `<li> ${movies[i].name} </li>`;
+              }
+            }
+            break;
+          case "2":
+            movieContainer.innerHTML = "";
+            for (var i = 0; i < movies.length; i++) {
+              if (movies[i].categorie == "Scary") {
+                movieContainer.innerHTML += `<li> ${movies[i].name} </li>`;
+              }
+            }
+            break;
+          case "3":
+            movieContainer.innerHTML = "";
+            for (var i = 0; i < movies.length; i++) {
+              if (movies[i].categorie == "Drama") {
+                movieContainer.innerHTML += `<li> ${movies[i].name} </li>`;
+              }
+            }
+            break;
+        }
+      }
+      movieBtn.onclick = chooseMovie;
+    </script>
+  </body>
+</html>

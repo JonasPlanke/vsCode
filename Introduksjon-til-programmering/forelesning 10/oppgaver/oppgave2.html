@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Italiensk resturant</h1>
+    <input id="button" type="button" value="vis meny" />
+    <div id="meny-container">
+      <ul id="liste"></ul>
+    </div>
+    <script>
+      var menyBtn = document.getElementById("button");
+      var container = document.getElementById("meny-container");
+
+      var mat = {
+        navn: "pizza",
+        bilde: "pizza",
+        pris: 100,
+        ingred: ["ost", "løk", "tomat"],
+      };
+
+      function btnClick() {
+        container.innerHTML +=
+          `<p> ${mat.navn} </p>` +
+          ` <p> ${mat.pris}kr </p>` +
+          `<img
+        src="/Introduksjon-til-programmering/forelesning 10/oppgaver/${mat.bilde}.jpg"
+      />`;
+
+        for (var i = 0; i < mat.ingred.length; i++) {
+          container.innerHTML += `<li> ${mat.ingred[i]} </li>`;
+        }
+      }
+      menyBtn.onclick = btnClick;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="animal-txt">Rådyret har spist 0 ganger. Reven har spist 0 ganger.</p>
+    <div id="animal-container"></div>
+    <script>
+      var animalTxt = document.getElementById("animal-txt");
+      var animalContainer = document.getElementById("animal-container");
+
+      var foxHunger = 0;
+      var deerHunger = 0;
+
+      var animalsArray = ["deer", "fox"];
+
+      setTimeout(showAnimals, 1000);
+
+      function showAnimals() {
+        for (i = 0; i < animalsArray.length; i++) {
+          animalContainer.innerHTML += `<img id="${animalsArray[i]}" src="/Introduksjon-til-programmering/forelesning-8/assets/${animalsArray[i]}.png"/>`;
+        }
+        var foxImg = document.getElementById(animalsArray[1]);
+        var deerImg = document.getElementById(animalsArray[0]);
+
+        deerImg.onclick = function () {
+          deerHunger++;
+          feedAnimal(deerHunger);
+        };
+        foxImg.onclick = function () {
+          foxHunger++;
+          feedAnimal(foxHunger);
+        };
+      }
+      function feedAnimal(hunger) {
+        animalTxt.innerHTML = `Rådyret har spist ${deerHunger} ganger. Reven har spist ${foxHunger} ganger.`;
+      }
+    </script>
+  </body>
+</html>

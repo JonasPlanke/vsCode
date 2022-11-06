@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="nr"></p>
+    <div id="container"></div>
+    <script>
+      var arrayImg = ["1", "2", "3", "4", "5"];
+      var container = document.getElementById("container");
+      var nr = document.getElementById("nr");
+
+      for (var i = 0; i <= arrayImg.length; i++) {
+        container.innerHTML += `<img src="/bilder/${i}.jpg">`;
+        nr.innerHTML = `<p> det er ${arrayImg.length} ting </p>`;
+      }
+    </script>
+  </body>
+</html>

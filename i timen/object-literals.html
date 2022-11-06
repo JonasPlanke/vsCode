@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Katter</h1>
+    <input type="button" id="cat-btn" value="Vis katt" />
+    <div id="cat-container"></div>
+
+    <script>
+      var catContainer = document.getElementById("cat-container");
+      var catBtn = document.getElementById("cat-btn");
+
+      var myCats = [
+        {
+          name: "Snuppa",
+          age: 18,
+        },
+        {
+          name: "ikke snuppa",
+          age: 108,
+        },
+      ];
+      function showCat() {
+        for (var i = 0; i < myCats.length; i++) {
+          catContainer.innerHTML += `Katten min heter ${myCats[i].name}, den er ${myCats[i].age} år gammel`;
+        }
+      }
+      catBtn.onclick = showCat;
+    </script>
+  </body>
+</html>

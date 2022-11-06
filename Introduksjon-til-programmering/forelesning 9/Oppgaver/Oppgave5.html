@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="kanin-btn" type="button" value="Vis kanin" />
+
+    <input id="hund-btn" type="button" value="Vis hund" />
+
+    <div id="img-container"></div>
+
+    <script>
+      var kaninBtn = document.getElementById("kanin-btn");
+      var hundBtn = document.getElementById("hund-btn");
+      var imgContainer = document.getElementById("img-container");
+
+      kaninBtn.onclick = showImage;
+      hundBtn.onclick = showImage;
+
+      function showImage() {
+        if (this.id === "kanin-btn") {
+          imgContainer.innerHTML = `<img src="/bilder/bunny.jfif" id="kanin-img"/>`;
+          var kaninImg = document.getElementById("kanin-img");
+          kaninImg.onclick = showInfo;
+        } else {
+          imgContainer.innerHTML = `<img src="/bilder/hund.jfif" id="hund-img"/>`;
+          var hundImg = document.getElementById("hund-img");
+          hundImg.onclick = showInfo;
+        }
+      }
+
+      function showInfo() {
+        if (this.id === "kanin-img") {
+          console.log("Jeg er en kanin");
+        } else {
+          console.log("jeg er en hund");
+        }
+      }
+    </script>
+  </body>
+</html>

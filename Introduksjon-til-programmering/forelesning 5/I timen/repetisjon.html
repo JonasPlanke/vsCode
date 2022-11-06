@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="Overskrift">Pakkeliste</h1>
+    <input id="user-txt" type="text" value="skriv inn her" />
+    <input id="add-button" type="button" value="Legg til" />
+    <ul id="packing-list"></ul>
+
+    <script>
+      var userTxt = document.getElementById("user-txt");
+      var addBtn = document.getElementById("add-button");
+      var packingList = document.getElementById("packing-list");
+
+      addBtn.onclick = addItem;
+      function addItem() {
+        var userTxtValue = userTxt.value;
+        if (userTxtValue.length > 0) {
+          packingList.innerHTML += `<li> ${userTxtValue}</li>`;
+          userTxt.value = "";
+        } else {
+          alert("Du må skrive noe i tekstfeltet");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Italiensk resturant</h1>
+    <input id="button" type="button" value="vis meny" />
+    <div id="meny-container">
+      <ul id="liste"></ul>
+    </div>
+    <script>
+      var menyBtn = document.getElementById("button");
+      var container = document.getElementById("meny-container");
+      var liste = document.getElementById("liste");
+
+      var mat = [
+        {
+          navn: "pizza",
+          bilde: "pizza",
+          pris: 100,
+          ingred: ["ost", "løk", "tomat"],
+        },
+        {
+          navn: "pasta",
+          bilde: "pasta",
+          pris: 200,
+          ingred: ["ost", "løk", "pasta"],
+        },
+        {
+          navn: "spag",
+          bilde: "pasta",
+          pris: 200,
+          ingred: ["ost", "løk", "pasta"],
+        },
+      ];
+
+      function btnClick() {
+        container.innerHTML = "";
+        for (var i = 0; i < mat.length; i++) {
+          container.innerHTML +=
+            `<p> ${mat[i].navn} </p>` +
+            ` <p> ${mat[i].pris}kr </p>` +
+            `<img
+        src="/Introduksjon-til-programmering/forelesning 10/oppgaver/${mat[i].bilde}.jpg"
+      />`;
+          for (var k = 0; k < mat[i].ingred.length; k++) {
+            container.innerHTML += `<li> ${mat[i].ingred[k]} </li>`;
+          }
+          container.innerHTML += `<p> ---------------- </p>`;
+        }
+      }
+      menyBtn.onclick = btnClick;
+    </script>
+  </body>
+</html>

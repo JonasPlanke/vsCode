@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">gjett passord</button>
+    <div id="div"></div>
+    <div id="div2"></div>
+    <script>
+      var div = document.getElementById("div");
+      var div2 = document.getElementById("div2");
+      var btn = document.getElementById("btn");
+      var userPassword = prompt("Velg passord et passord:");
+      var password = false;
+      function gjett() {
+        while (password == false) {
+          var userGjett = prompt("Gjett et passord");
+          if (userGjett == userPassword) {
+            password = true;
+            div.innerHTML = `<p> du gjettet riktig </p>`;
+          } else {
+            var userGjett = prompt("Gjett et passord");
+          }
+        }
+      }
+      btn.onclick = gjett;
+    </script>
+  </body>
+</html>

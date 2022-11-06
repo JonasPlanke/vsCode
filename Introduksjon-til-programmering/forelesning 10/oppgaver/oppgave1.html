@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Skriv inn dyret du ønsker å se</h1>
+    <input id="input-field" type="field" value="skriv et dyr" />
+    <input id="btn" type="button" value="vis dyr" />
+
+    <div id="farlig">
+      <p>Farlige dyr:</p>
+    </div>
+
+    <div id="kosete">
+      <p>Kosete dyr:</p>
+    </div>
+
+    <script>
+      var btn = document.getElementById("btn");
+      var inputField = document.getElementById("input-field");
+      var farlig = document.getElementById("farlig");
+      var kosete = document.getElementById("kosete");
+
+      function showAnimal() {
+        var userInput = inputField.value.toLowerCase();
+        console.log(userInput);
+        switch (userInput) {
+          case "hund":
+            kosete.innerHTML += `<img
+      src="/Introduksjon-til-programmering/forelesning 10/oppgaver/hund.jpg"
+    />`;
+            inputField.value = "";
+            break;
+          case "tiger":
+            farlig.innerHTML += `<img
+      src="/Introduksjon-til-programmering/forelesning 10/oppgaver/tiger.jpg"
+    />`;
+            inputField.value = "";
+            break;
+
+          default:
+            alert("Dyret finnes ikke");
+            break;
+        }
+      }
+
+      btn.onclick = showAnimal;
+    </script>
+  </body>
+</html>

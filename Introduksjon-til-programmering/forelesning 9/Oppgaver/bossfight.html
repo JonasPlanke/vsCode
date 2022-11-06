@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="veg-input-field" type="field" value="Grønnsak" />
+    <input id="met-input-field" type="field" value="Kjøtt" />
+    <input id="che-input-field" type="field" value="Ostetype" />
+    <input id="pizza-btn" type="button" value="Lag min pizza!" />
+
+    <ul id="liste"></ul>
+
+    <script>
+      var vegInputField = document.getElementById("veg-input-field");
+      var metInputField = document.getElementById("met-input-field");
+      var cheInputField = document.getElementById("che-input-field");
+      var pizzaBtn = document.getElementById("pizza-btn");
+      var liste = document.getElementById("liste");
+
+      bestillinger = 0;
+
+      function makePizza() {
+        bestillinger = bestillinger + 1;
+        var veg = vegInputField.value;
+        var met = metInputField.value;
+        var che = cheInputField.value;
+
+        vegInputField.value = " ";
+        metInputField.value = " ";
+        cheInputField.value = " ";
+
+        liste.innerHTML += `<li> ${veg} ${met} ${che} </li>`;
+      }
+
+      pizzaBtn.onclick = makePizza;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input" type="text" value="Skriv en grønnsak" />
+    <button id="btn">add</button>
+    <button id="test">Print listen</button>
+
+    <ul id="liste"></ul>
+    <script>
+      var arrayVeg = ["gulrot", "potet", "brokkoli"];
+      var inputField = document.getElementById("input");
+      var btn = document.getElementById("btn");
+      var vegConatiner = document.getElementById("liste");
+
+      var test = document.getElementById("test");
+
+      function btnPress() {
+        arrayVeg.push(inputField.value);
+        function hf() {
+          for (var i = 0; i < arrayVeg.length; i++) {
+            vegConatiner.innerHTML += `<li> ${arrayVeg[i]} </li>`;
+          }
+        }
+        function hf()
+      }
+
+      btn.onclick = btnPress;
+      btn.onclick = hf;
+    </script>
+  </body>
+</html>

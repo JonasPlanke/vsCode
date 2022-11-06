@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button">Start</button>
+    <div id="imgbox"></div>
+
+    <script>
+      var imgBox = document.getElementById("imgbox");
+      var btn = document.getElementById("button");
+      var i = 0;
+
+      function showPictures() {
+        while (i < 10) {
+          imgBox.innerHTML += `<img src="/bilder/hund.jfif">`;
+          i = i + 1;
+        }
+      }
+      btn.onclick = showPictures;
+    </script>
+  </body>
+</html>

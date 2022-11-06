@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Filmkiosk</h1>
+    <select id="movie-select">
+      <option value="1">Smile</option>
+      <option value="2">The good nurse</option>
+      <option value="3">Pray</option>
+    </select>
+    <input id="movie-btn" type="button" value="Velg film" />
+    <div id="movie-container"></div>
+
+    <script>
+      var movieSelect = document.getElementById("movie-select");
+      var movieBtn = document.getElementById("movie-btn");
+      var movieContainer = document.getElementById("movie-container");
+
+      function chooseMovie() {
+        var userMovie = movieSelect.value;
+        switch (userMovie) {
+          case "1":
+            movieContainer.innerHTML = "Smile";
+            break;
+          case "2":
+            movieContainer.innerHTML = "The good nurse";
+            break;
+          case "3":
+            movieContainer.innerHTML = "Pray";
+            break;
+        }
+      }
+      movieBtn.onclick = chooseMovie;
+    </script>
+  </body>
+</html>

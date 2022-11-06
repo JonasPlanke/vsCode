@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="svarbtn">svar</button>
+    <button id="2btn">Vis svar</button>
+    <p id="matte"></p>
+    <p id="1"></p>
+    <script>
+      var tall1 = parseInt(prompt("tall1:"));
+      var tall2 = parseInt(prompt("tall2:"));
+
+      var matteboks = document.getElementById("matte");
+      var mattebokS = document.getElementById("1");
+      var svarBtn = document.getElementById("svarbtn");
+      var Btn = document.getElementById("2btn");
+
+      function math() {
+        var userAnswer = prompt(`${tall1} + ${tall2} = ???`);
+
+        function showAnswer() {
+          var svar = tall1 + tall2;
+          matteboks.innerHTML = `${tall1} + ${tall2} = ${svar}`;
+          mattebokS.innerHTML += `du svarte ${userAnswer}`;
+        }
+        Btn.onclick = showAnswer;
+      }
+
+      svarBtn.onclick = math;
+    </script>
+  </body>
+</html>

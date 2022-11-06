@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">fjern sauer</button>
+    <button id="btn2">add sauer</button>
+    <div id="div"></div>
+    <script>
+      var btn = document.getElementById("btn");
+      var btn2 = document.getElementById("btn2");
+      var div = document.getElementById("div");
+      var i = 0;
+
+      function fjernsauer() {
+        div.innerHTML = "";
+        i = 0;
+      }
+      function idk() {
+        div.innerHTML = "";
+        i = 0;
+        var userWantedAmount = parseInt(prompt("hvor mange sauer vil du ha?"));
+        while (userWantedAmount > i) {
+          div.innerHTML += `<img src="/bilder/sau.jfif">`;
+          i = i + 1;
+        }
+      }
+      btn.onclick = fjernsauer;
+      btn2.onclick = idk;
+    </script>
+  </body>
+</html>

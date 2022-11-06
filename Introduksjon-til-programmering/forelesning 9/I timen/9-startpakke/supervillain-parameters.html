@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      Trykk på knappene for å få opp et superskurkbilde. Trykk på bildet for å
+      få mere informasjon.
+    </h3>
+    <input type="button" value="Vis Harley Quinn" id="harley-btn" />
+    <input type="button" value="Vis The Joker" id="joker-btn" />
+    <div id="img-container"></div>
+
+    <script>
+      var harleyBtn = document.getElementById("harley-btn");
+      var jokerBtn = document.getElementById("joker-btn");
+      var imgContainer = document.getElementById("img-container");
+      var harleyInfo = "Dette er Harley Quinn!";
+      var jokerInfo = "Dette er The Joker!";
+
+      harleyBtn.onclick = function () {
+        showImage("harley", harleyInfo);
+      };
+
+      jokerBtn.onclick = function () {
+        showImage("joker", jokerInfo);
+      };
+
+      function showImage(villain, info) {
+        imgContainer.innerHTML = `<img src="/assets/${villain}-img.png" id="${villain}"/>`;
+        var villainImg = document.getElementById(villain);
+        villainImg.onclick = function () {
+          showInfo(info);
+        };
+      }
+
+      function showInfo(info) {
+        console.log(info);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yoyo</title>
+  </head>
+  <body>
+    <h1>Væremelding-app</h1>
+    <input type="text" value="skriv inn været i dag" id="weather-input-field" />
+    <input type="button" value="Trykk her" id="weather-btn" />
+    <div id="weather-container"></div>
+    <script>
+      function showWeather() {
+        var userInput = weatherInputField.value;
+        var weatherContainer = document.getElementById("weather-container");
+
+        weatherContainer.innerHTML += `<p> ${userInput} <p/>)`;
+        weatherInputField.value = "";
+      }
+
+      var weatherBtn = document.getElementById("weather-btn");
+      var weatherInputField = document.getElementById("weather-input-field");
+
+      weatherBtn.onclick = showWeather;
+    </script>
+  </body>
+</html>

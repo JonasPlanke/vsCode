@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var userMoney = prompt("hvor mye penger har du?");
+      var userVIP = prompt("er du VIP-medel? Ja/Nei");
+
+      var ticketPrice = 5000;
+
+      if ((userMoney < ticketPrice && userVIP === "Ja") || userVIP === "ja") {
+        alert("du har ikke nok penger, men du har VIP-tilgang");
+      } else if (userMoney > ticketPrice || userVIP === "Ja")
+        alert("du har enten nok penger eller er VIP medlem");
+    </script>
+  </body>
+</html>

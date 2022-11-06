@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="/bilder/sau.jfif" />
+    <div id="imgcontainer"></div>
+    <script>
+      var sauerCounted = 0;
+      var keepCounting = true;
+      var imgContainer = document.getElementById("imgcontainer");
+
+      while (keepCounting == true) {
+        var userPrompt = prompt(
+          `ønsker du å telle flere sauer du har telt ${sauerCounted} sauer`
+        );
+
+        if (userPrompt == "ja") {
+          sauerCounted = sauerCounted + 1;
+        } else {
+          keepCounting = false;
+          for (var i = 1; sauerCounted > i; i++)
+            imgContainer.innerHTML += `<img src="/bilder/sau.jfif">`;
+        }
+      }
+    </script>
+  </body>
+</html>

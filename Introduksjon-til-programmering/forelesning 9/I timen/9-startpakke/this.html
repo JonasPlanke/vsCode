@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hva er "this"?</title>
+  </head>
+  <body>
+    <h3>
+      Trykk på knappene for å få opp et superskurkbilde. Trykk på bildet for å
+      få mere informasjon.
+    </h3>
+    <input type="button" value="Vis Harley Quinn" id="harley-btn" />
+    <input type="button" value="Vis The Joker" id="joker-btn" />
+    <div id="img-container"></div>
+
+    <script>
+      //Hva "this" er, avhenger av konteksten det blir brukt.
+      //Vi kan si at "this" betyr "det" eller "den", for eksempel
+      //"DET" som blir trykket på.. "DEN" som ble trykket på sin id..
+      //"this" avhenger mer av at vi må kombinere teknikken med if/else
+      //Vi ønsker derfor i stor grad å benytte parametere, fordi dette forkorter koden ytterligere
+
+      var harleyBtn = document.getElementById("harley-btn");
+      var jokerBtn = document.getElementById("joker-btn");
+      var imgContainer = document.getElementById("img-container");
+      var harleyInfo = "Dette er Harley Quinn!";
+      var jokerInfo = "Dette er The Joker!";
+
+      harleyBtn.onclick = showImage;
+      jokerBtn.onclick = showImage;
+
+      function showImage() {
+        if (this.id === "harley-btn") {
+          imgContainer.innerHTML = `<img src="/assets/harley-img.png" id="harley-img"/>`;
+          var harleyImg = document.getElementById("harley-img");
+          harleyImg.onclick = showInfo;
+        } else {
+          imgContainer.innerHTML = `<img src="/assets/joker-img.png" id="joker-img"/>`;
+          var jokerImg = document.getElementById("joker-img");
+          jokerImg.onclick = showInfo;
+        }
+      }
+
+      function showInfo() {
+        if (this.id === "harley-img") {
+          console.log(harleyInfo);
+        } else {
+          console.log(jokerInfo);
+        }
+      }
+    </script>
+  </body>
+</html>

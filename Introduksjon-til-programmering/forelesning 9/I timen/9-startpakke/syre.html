@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="move">move</button>
+    <div id="div" style="width: 500px; height: 500px"></div>
+    <script>
+      var div = document.getElementById("div");
+      var move1 = document.getElementById("move");
+      var xPos = 50;
+      var yPos = "50%";
+
+      function changeColor() {
+        var x = Math.floor(Math.random() * 256);
+        var y = Math.floor(Math.random() * 256);
+        var z = Math.floor(Math.random() * 256);
+        var farge = "rgb(" + x + "," + y + "," + z + ")";
+        // console.log(farge);
+        div.style.background = farge;
+
+        setTimeout(changeColor, 1);
+      }
+      changeColor();
+
+      function rot() {
+        var c = Math.floor(Math.random() * 360);
+        var rotate = "rotate(" + c + "deg)";
+        div.style.transform = rotate;
+
+        setTimeout(rot, 1);
+      }
+      rot();
+
+      function xMove() {
+        xPos += 1;
+        console.log("test");
+        xPos1 = "";
+        div.style.posistion = xPos;
+      }
+      move.onclick = xMove;
+    </script>
+  </body>
+</html>

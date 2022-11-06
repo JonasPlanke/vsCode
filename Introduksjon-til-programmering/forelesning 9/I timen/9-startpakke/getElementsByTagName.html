@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getElementsByTagName</title>
+  </head>
+  <body>
+    <ul>
+      <li>Trene - Ikke begynt</li>
+      <li>Klesvasken - Ferdig</li>
+      <li>Vaske badet - Ferdig</li>
+      <li>Databaseroppgaver - Pågående</li>
+      <li>Arbeidskrav i JS - Ferdig</li>
+    </ul>
+    <script>
+      var listItems = document.getElementsByTagName("li");
+
+      for (var i = 0; i < listItems.length; i++) {
+        console.log(listItems[i]);
+
+        if (listItems[i].innerHTML.includes("Ferdig")) {
+          listItems[i].style.backgroundColor = "green";
+        } else if (listItems[i].innerHTML.includes("Pågående")) {
+          listItems[i].style.backgroundColor = "yellow";
+        } else {
+          listItems[i].style.backgroundColor = "red";
+        }
+
+        // var x = Math.floor(Math.random() * 256);
+        // var y = Math.floor(Math.random() * 256);
+        // var z = Math.floor(Math.random() * 256);
+        // var farge = "rgb(" + x + "," + y + "," + z + ")";
+        // listItems[i].style.backgroundColor = farge;
+
+        var heightNr = Math.floor(Math.random() * 200);
+        var height = heightNr + 10 + "px";
+        listItems[i].style.height = height;
+      }
+    </script>
+  </body>
+</html>

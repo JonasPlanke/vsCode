@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="img-container">Dette er en bilde container</div>
+    <script>
+      var imgContainer = document.getElementById("img-container");
+      imgContainer.innerHTML = "js";
+
+      var userFavAnimal = prompt(
+        "Hva er ditt favoritt-dyr? Velg mellom katt, hund eller kanin"
+      );
+
+      imgContainer.innerHTML = userFavAnimal;
+
+      if (userFavAnimal.toUpperCase() === "KANIN") {
+        alert(userFavAnimal.toUpperCase());
+        imgContainer.innerHTML = `<img src="bunny.jfif"/>`;
+      } else if (userFavAnimal.toLowerCase() === "hund") {
+        imgContainer.innerHTML = `<img src="hund.jfif"/>`;
+      } else if (userFavAnimal.toUpperCase() === "KATT") {
+        imgContainer.innerHTML = `<img src="katt.jfif"/>`;
+      } else if (userFavAnimal.toLowerCase().includes("tiger")) {
+        alert("Du burde ikke ha en tiger hjemme, de er skumle");
+      }
+    </script>
+  </body>
+</html>

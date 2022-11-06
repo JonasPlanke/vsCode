@@ -1,0 +1,29 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sirkel {
+  position: relative;
+  height: 20vh;
+  width: 20vh;
+  background-color: red;
+  border-radius: 100%;
+  animation-name: jump;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes jump {
+  0% {
+    margin-bottom: 0;
+  }
+  50% {
+    margin-bottom: 500px;
+  }
+  100% {
+    margin-bottom: 0;
+  }
+}
