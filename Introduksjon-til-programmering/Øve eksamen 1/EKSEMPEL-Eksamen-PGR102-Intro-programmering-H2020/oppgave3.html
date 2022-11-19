@@ -39,15 +39,13 @@
       }
       addBtn.onclick = addProducts;
 
-      console.log(productArray[-1].amount);
       function showProducts() {
         productConatiner.innerHTML = "";
         for (var i = 0; i <= productArray.length; i++) {
           productConatiner.innerHTML += `<li> ${
             productArray[
-              i +
-                sortByAmount(productArray[i].amount, productArray[i + 1].amount)
-            ]
+              i + sortByAmount(productArray[i].amount, productArray[0].amount)
+            ].amount
           } </li>`;
         }
       }

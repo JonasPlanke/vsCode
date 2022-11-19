@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1</title>
+  </head>
+  <body>
+    <div>
+      <img id="img1" src="/bilder/1.jpg" />
+      <img id="img2" src="/bilder/2.jpg" />
+      <img id="img3" src="/bilder/3.jpg" />
+    </div>
+    <div id="txt"></div>
+    <div>
+      <h1>Quiz</h1>
+      <h2>Spørsmål 1: Hva er 2+2</h2>
+      <input id="q1" type="number" placeholder="Svar her" />
+      <h2>Spørsmål 2: Hvilket dyr er det?</h2>
+      <input id="q2" type="text" placeholder="Svar her" />
+      <h2>Spørsmål 3: Hva er 7*8</h2>
+      <input id="q3" type="number" placeholder="Svar her" />
+
+      <input id="answer-btn" type="button" value="show score" />
+    </div>
+
+    <script>
+      var img1 = document.getElementById("img1");
+      var img2 = document.getElementById("img2");
+      var img3 = document.getElementById("img3");
+
+      var txtContainer = document.getElementById("txt");
+
+      const img1text = "hei";
+      const img2text = "på";
+      const img3text = "deg";
+
+      function imgClick(img, text) {
+        if (txtContainer.innerHTML === "") {
+          txtContainer.innerHTML = text;
+          console.log("2");
+        } else {
+          txtContainer.innerHTML = "";
+          console.log("1");
+        }
+      }
+      img1.onclick = function () {
+        imgClick(img1, img1text);
+      };
+      img2.onclick = function () {
+        imgClick(img2, img2text);
+      };
+      img3.onclick = function () {
+        imgClick(img3, img3text);
+      };
+
+      var q1 = document.getElementById("q1");
+      var q2 = document.getElementById("q2");
+
+      var answerBtn = document.getElementById("answer-btn");
+      var answers = [4, "løve", 56];
+
+      function showScore() {
+        var userAnswers = [];
+        userAnswers.push(q1.value, q2.value.toLowerCase(), q3.value);
+        var score = 0;
+        for (var i = 0; i < answers.length; i++) {
+          if (answers[i] == userAnswers[i]) {
+            score += 1;
+          }
+        }
+        console.log(score);
+      }
+      answerBtn.onclick = showScore;
+    </script>
+  </body>
+</html>
