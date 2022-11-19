@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Todo-liste</h3>
+    <div>
+      <label>Tittel</label>
+      <input id="title-txt" type="text" />
+    </div>
+    <div>
+      <label>Viktighet (lav, middels, høy)</label>
+      <select id="importance-select">
+        <option>Lav</option>
+        <option>Middels</option>
+        <option>Høy</option>
+      </select>
+    </div>
+
+    <!--
+        Tomt array til å begynne med.
+        Hvordan legger vi til objekter i et array?
+        array.push() / array.unshift()
+    -->
+
+    <input id="add-todo-btn" type="button" value="Legg til todo" />
+    <input id="show-todos-btn" type="button" value="Vis alle todos" />
+
+    <p id="number-of-todos">Antall todos: 0</p>
+    <ul id="output-ul"></ul>
+
+    <script>
+      var titleTxt = document.getElementById("title-txt");
+      var importanceSelect = document.getElementById("importance-select");
+      var addTodoBtn = document.getElementById("add-todo-btn");
+      var showTodosBtn = document.getElementById("show-todos-btn");
+      var numberOfTodos = document.getElementById("number-of-todos");
+      var outputUl = document.getElementById("output-ul");
+
+      var todos = [];
+
+      function addTodo() {
+        var userInput = titleTxt.value;
+        var userImportance = importanceSelect.value;
+
+        todos.unshift({
+          title: userInput,
+          importance: userImportance,
+        });
+
+        numberOfTodos.innerHTML = `Antall todos: ${todos.length}`;
+        titleTxt.value = "";
+      }
+
+      addTodoBtn.onclick = addTodo;
+
+      function showTodos() {
+        outputUl.innerHTML = "";
+        for (var i = 0; i < todos.length; i++) {
+          if (todos[i].importance === "Høy") {
+            outputUl.innerHTML += `<li style="background-color: red;"> title: ${todos[i].title} Importance: ${todos[i].importance} </li>`;
+          } else if (todos[i].importance === "Lav") {
+            outputUl.innerHTML += `<li style="background-color: blue;"> title: ${todos[i].title} Importance: ${todos[i].importance} </li>`;
+          } else {
+            outputUl.innerHTML += `<li style="background-color: green;"> title: ${todos[i].title} Importance: ${todos[i].importance} </li>`;
+          }
+        }
+      }
+      showTodosBtn.onclick = showTodos;
+    </script>
+  </body>
+</html>

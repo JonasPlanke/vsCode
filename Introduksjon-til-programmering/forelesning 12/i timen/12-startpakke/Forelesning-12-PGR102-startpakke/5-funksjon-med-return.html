@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funksjon med return</title>
+  </head>
+  <body>
+    <div id="div-1"></div>
+    <div id="div-2"></div>
+
+    <script>
+      var div1 = document.getElementById("div-1");
+      var div2 = document.getElementById("div-2");
+
+      /*
+            TODO:
+            - stilsett div1 og div2 med høyde, bredde og bakgrunnsfarge
+            - bakgrunnsfargen skal hentes fra getRandomColor-funksjonen under
+            Mal for stilsetting: element.style.property = "value";
+        */
+      function styleDivs(box, height, width) {
+        box.style.height = `${height}px`;
+        box.style.width = `${width}px`;
+        box.style.backgroundColor = getRandomColor();
+      }
+
+      function getRandomColor() {
+        var colors = [
+          "red",
+          "green",
+          "blue",
+          "yellow",
+          "pink",
+          "black",
+          "grey",
+        ];
+
+        var randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+      }
+
+      styleDivs(div1, 300, 150);
+      styleDivs(div2, 100, 50);
+    </script>
+  </body>
+</html>

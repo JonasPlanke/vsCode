@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getElementsByTagName</title>
+  </head>
+  <body>
+    <input type="button" id="pikachu-btn" value="Pikachu-knapp" />
+    <input type="button" id="bulbasaur-btn" value="Bulbasaur-knapp" />
+
+    <div id="div"></div>
+    <script>
+      var pikachuBtn = document.getElementById("pikachu-btn");
+      var bulbasaurBtn = document.getElementById("bulbasaur-btn");
+      var div = document.getElementById("div");
+
+      /*
+            TODO: console.log den knappen som trykkes på sin ID og value ved å bruke this
+        */
+      function showBtnInformation() {
+        div.innerHTML = `id: ${this.id} value: ${this.value}`;
+      }
+
+      pikachuBtn.onclick = showBtnInformation;
+      bulbasaurBtn.onclick = showBtnInformation;
+    </script>
+  </body>
+</html>

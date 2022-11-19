@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funksjon med parametere</title>
+  </head>
+  <body>
+    <div id="output-div"></div>
+
+    <script>
+      var outputDiv = document.getElementById("output-div");
+      /*
+            TODO: fullfør funksjonen showInformation med parametere slik at den kan ta imot verdiene på linje 22 og vise Charmeleon i output-div
+        */
+      function showInformation(name, img, type) {
+        outputDiv.innerHTML += `<p> ${name} </p>`;
+        outputDiv.innerHTML += `<p> ${type} </p>`;
+        outputDiv.innerHTML += `<img src="/Introduksjon-til-programmering/forelesning 12/i timen/12-startpakke/Forelesning-12-PGR102-startpakke/images/${img}">`;
+      }
+
+      showInformation("Charmeleon", "charmeleon.png", "Ild");
+    </script>
+  </body>
+</html>

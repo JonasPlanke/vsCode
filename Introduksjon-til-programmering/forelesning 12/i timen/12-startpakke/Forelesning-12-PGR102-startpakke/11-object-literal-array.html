@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object literal array</title>
+  </head>
+  <body>
+    <input
+      id="show-pokemons-btn"
+      type="button"
+      value="Genererer alle Pokemons"
+    />
+    <div id="output-div"></div>
+
+    <script>
+      var showPokemonsBtn = document.getElementById("show-pokemons-btn");
+      var outputDiv = document.getElementById("output-div");
+
+      /*
+                  TODO: Skriv ut informasjon om alle objektene ved hjelp av en for-løkke.
+              */
+
+      var pokemons = [
+        {
+          name: "Psyduck",
+          image: "psyduck.png",
+          description: "Psyduck kan svømme meget raskt.",
+        },
+        {
+          name: "Charmeleon",
+          image: "charmeleon.png",
+          description: "Charmeleon er on fire!",
+        },
+        {
+          name: "Pikachu",
+          image: "pikachu.png",
+          description: "Pikachu er veldig søt",
+        },
+      ];
+
+      function showPokemons() {
+        var text = "";
+        for (var i = 0; i < pokemons.length; i++) {
+          text += `<h3> ${pokemons[i].name} </h3>`;
+          text += `<img src="/Introduksjon-til-programmering/forelesning 12/i timen/12-startpakke/Forelesning-12-PGR102-startpakke/images/${pokemons[i].image}">`;
+          text += `<p> ${pokemons[i].description} <p>`;
+        }
+        outputDiv.innerHTML = text;
+      }
+
+      showPokemonsBtn.onclick = showPokemons;
+    </script>
+  </body>
+</html>

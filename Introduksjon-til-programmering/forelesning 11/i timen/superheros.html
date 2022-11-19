@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supercuties and Supervillains</title>
+  </head>
+  <body>
+    <h1>Supercuties and Supervillains</h1>
+
+    <input id="show-all-btn" type="button" value="Vis alle" />
+    <input id="show-supercuties-btn" type="button" value="Vis superdyr" />
+    <input id="show-supervillains-btn" type="button" value="Vis skurkedyr" />
+    <div id="output-div"></div>
+
+    <script>
+      var supercharactersArray = [
+        {
+          name: "Chubby Bunny",
+          alias: "Pelle",
+          image: "bunny-png.png",
+          powers: ["Store fortenner", "Hopper høyt"],
+          good: true,
+        },
+        {
+          name: "Nøtte Knekkern",
+          alias: "Eskild",
+          image: "squirrel.jpg",
+          powers: ["Har nøtteallergi"],
+          good: true,
+        },
+        {
+          name: "Thief in the Night",
+          alias: "Gunnar",
+          image: "raccoon.png",
+          powers: ["Supertyv", "God til å smiske", "Uendelig appetitt"],
+          good: false,
+        },
+      ];
+
+      var showAllBtn = document.getElementById("show-all-btn");
+      var showSupercutiesBtn = document.getElementById("show-supercuties-btn");
+      var showSupervillainsBtn = document.getElementById(
+        "show-supervillains-btn"
+      );
+      var outputDiv = document.getElementById("output-div");
+
+      /* `
+        <article style="border: 5px solid ${color}">
+            <img src="images/${supercharactersArray[i].image}">
+                    <h3>${supercharactersArray[i].name}</h3>
+                        <ul>${supercharacterPowers}</ul>
+        </article>`
+        */
+      showAllBtn.onclick = showSuperanimals;
+
+      function showSuperanimals() {
+        var superAnimalInfo = "";
+
+        for (var i = 0; i < supercharactersArray.length; i++) {
+          var supercharacterPowers = "";
+          var color = createColor(supercharactersArray[i].good);
+          for (var k = 0; k < supercharactersArray[i].powers.length; k++) {
+            supercharacterPowers += `<li> ${supercharactersArray[i].powers[k]}`;
+          }
+          superAnimalInfo += `<article style="border: 5px solid ${color}">
+            <img style="width: 400px"src="images/${supercharactersArray[i].image}">
+                    <h3>${supercharactersArray[i].name}</h3>
+                        <ul>${supercharacterPowers}</ul>
+        </article>`;
+        }
+        outputDiv.innerHTML += superAnimalInfo;
+      }
+
+      function createColor(good) {
+        var color = "";
+
+        switch (good) {
+          case true:
+            color = "green";
+            break;
+          case false:
+            color = "red";
+            break;
+        }
+        return color;
+      }
+    </script>
+  </body>
+</html>

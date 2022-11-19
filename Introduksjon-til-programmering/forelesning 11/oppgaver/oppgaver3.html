@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Topic</label>
+    <input id="txtfield" type="text" />
+    <input id="btn" type="button" value="Get information" />
+    <div id="div"></div>
+    <script>
+      var txtfield = document.getElementById("txtfield");
+      var btn = document.getElementById("btn");
+      var div = document.getElementById("div");
+
+      function getInformation(type) {
+        var infomation;
+
+        switch (type) {
+          case "programming":
+            infomation = "programming";
+            break;
+          case "problem-solving":
+            infomation = "problem-solving";
+            break;
+          default:
+            infomation =
+              "du kan bare taste inn programmering eller problem-solving";
+        }
+        return infomation;
+      }
+
+      function btnClick() {
+        var infomation = getInformation(txtfield.value.toLowerCase());
+        div.innerHTML = `<p> ${infomation} </p>`;
+        txtfield.value = "";
+      }
+
+      btn.onclick = btnClick;
+    </script>
+  </body>
+</html>

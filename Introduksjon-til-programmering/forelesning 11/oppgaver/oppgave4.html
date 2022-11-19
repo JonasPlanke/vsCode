@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Tilfeldig ord</h1>
+
+    <input id="btn" type="button" value="Gi meg et ord" />
+    <div id="div"></div>
+    <script>
+      div = document.getElementById("div");
+      btn = document.getElementById("btn");
+      var letterArray = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "Æ",
+        "Ø",
+        "Å",
+      ];
+
+      function randomWord() {
+        var text = "";
+        for (var i = 0; i < 4; i++) {
+          text += `${
+            letterArray[Math.floor(Math.random() * letterArray.length)]
+          }`;
+        }
+        div.innerHTML += `<p> ${text} </p>`;
+      }
+      btn.onclick = randomWord;
+    </script>
+  </body>
+</html>

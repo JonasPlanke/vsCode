@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Number1</label>
+    <input id="number1Field" type="text" />
+    <label>Number2</label>
+    <input id="number2Field" type="text" />
+    <input id="btn" type="button" value="Multiply Numbers" />
+
+    <div id="answerContainer"></div>
+
+    <script>
+      var number1Field = document.getElementById("number1Field");
+      var number2Field = document.getElementById("number2Field");
+      var answerContainer = document.getElementById("answerContainer");
+      var btn = document.getElementById("btn");
+
+      function getMultiplication(number1, number2) {
+        var result = number1 * number2;
+        return result;
+      }
+      function multiply() {
+        var number1 = number1Field.value;
+        var number2 = number2Field.value;
+        var result = getMultiplication(number1, number2);
+        answerContainer.innerHTML = `<p> ${number1} * ${number2} = ${result} </p>`;
+        number1Field.value = "";
+        number2Field.value = "";
+      }
+      btn.onclick = multiply;
+    </script>
+  </body>
+</html>

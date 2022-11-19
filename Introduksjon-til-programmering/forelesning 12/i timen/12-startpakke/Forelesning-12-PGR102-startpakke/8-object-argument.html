@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objekt inn i funksjon</title>
+  </head>
+  <body>
+    <div id="output-div"></div>
+
+    <script>
+      var outputDiv = document.getElementById("output-div");
+
+      var pokemon1 = {
+        name: "Psyduck",
+        image: "psyduck.png",
+        description: "Psyduck kan svømme meget raskt.",
+      };
+
+      /*
+            TODO: fullfør funksjonen showInformation slik at den skriver ut informasjon fra objektet.
+        */
+      function showInformation() {
+        outputDiv.innerHTML = `<article>
+          <p> ${pokemon1.name} </p>
+          <img src="/Introduksjon-til-programmering/forelesning 12/i timen/12-startpakke/Forelesning-12-PGR102-startpakke/images/${pokemon1.image}">
+          <p> ${pokemon1.description} </p>
+
+                </article>`;
+      }
+
+      showInformation();
+    </script>
+  </body>
+</html>

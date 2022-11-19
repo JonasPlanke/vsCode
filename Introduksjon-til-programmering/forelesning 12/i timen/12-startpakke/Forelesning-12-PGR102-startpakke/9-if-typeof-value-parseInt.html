@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if else</title>
+  </head>
+  <body>
+    <h3>Skriv inn 1 eller 2</h3>
+    <input id="number-txt" type="number" />
+    <input id="check-chosen-number-btn" type="button" value="Sett tall" />
+    <div id="output-div"></div>
+
+    <script>
+      var numberTxt = document.getElementById("number-txt");
+      var setChosenNumberBtn = document.getElementById(
+        "check-chosen-number-btn"
+      );
+      var outputDiv = document.getElementById("output-div");
+
+      /*
+          TODO: Sjekke om brukeren har skrevet inn 1, 2 eller noe annet.
+          Hvis 1 skriv ut "Feil valg", hvis 2 skriv ut Pikachu med en melding, hvis noe annet skriv ut at man må velge 1 eller 2.
+      */
+      function checkChosenNumber() {
+        var userNumber = parseInt(numberTxt.value);
+
+        if (userNumber === 1) {
+          outputDiv.innerHTML = "feil valg";
+        } else if (userNumber === 2) {
+          outputDiv.innerHTML = "pikachu";
+        } else {
+          outputDiv.innerHTML = "velg 1 eller 2";
+        }
+      }
+
+      setChosenNumberBtn.onclick = checkChosenNumber;
+    </script>
+  </body>
+</html>
