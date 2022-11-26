@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 2 - Dragracing</title>
+    <link rel="stylesheet" href="css/oppgave2.css" />
+  </head>
+  <body>
+    <input id="start-btn" type="button" value="start" />
+    <h1>Dragracing</h1>
+
+    <div id="road-div"></div>
+
+    <img id="blue-car" src="images/blue-car.png" />
+    <img id="green-car" src="images/green-car.png" />
+    <img id="red-car" src="images/red-car.png" />
+
+    <div id="finish-line"></div>
+
+    <div id="output-div"></div>
+
+    <script>
+      var startBtn = document.getElementById("start-btn");
+      var outputDiv = document.getElementById("output-div");
+
+      var blueNumber = 0;
+      var greenNumber = 0;
+      var redNumber = 0;
+      var drive = true;
+
+      function carMove() {
+        if (blueNumber >= 700) {
+          drive = false;
+          outputDiv.innerHTML = "Blå vant";
+        } else if (greenNumber >= 700) {
+          drive = false;
+          outputDiv.innerHTML = "Grønn vant";
+        } else if (redNumber >= 700) {
+          drive = false;
+          outputDiv.innerHTML = "Rød vant";
+        } else {
+          blueNumber += Math.floor(Math.random() * 201);
+          var blueCarMove = "" + blueNumber + "px";
+          greenNumber += Math.floor(Math.random() * 201);
+          var greenCarMove = "" + greenNumber + "px";
+          redNumber += Math.floor(Math.random() * 201);
+          var redCarMove = "" + redNumber + "px";
+
+          document.getElementById("blue-car").style.left = blueCarMove;
+          document.getElementById("green-car").style.left = greenCarMove;
+          document.getElementById("red-car").style.left = redCarMove;
+        }
+
+        setInterval(carMove, 1000);
+      }
+      startBtn.onclick = carMove;
+    </script>
+  </body>
+</html>

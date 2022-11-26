@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 3 - Middelalderbygninger</title>
+  </head>
+  <body>
+    <!-- Det er lov å endre/legge til HTML -->
+
+    <h1>Middelalderbygninger</h1>
+    <p>
+      Lyst til å bo i en middelalderbygning? Vi har de beste
+      middelalderbygningene! :)
+    </p>
+
+    <input id="show-all-btn" type="button" value="Vis alle" />
+
+    <hr />
+
+    <label>Minimum pris</label>
+    <input id="min-price" type="text" />
+    <label>Maksimum pris</label>
+    <input id="max-price" type="text" />
+    <input id="price-btn" type="button" value="Vis etter pris" />
+
+    <hr />
+
+    <!-- Hint: Å hente value fra valgt <option> fungerer på samme måte som å hente value fra en tekstboks -->
+    <select id="category-select">
+      <!-- Du endrer på options for å tilpasse til din løsning -->
+      <option>--Velg kategori--</option>
+      <option value="storage">Lagerbygning</option>
+      <option value="house">Hus</option>
+      <option value="tower">Tårn</option>
+    </select>
+    <input id="category-btn" type="button" value="Vis etter kategori" />
+
+    <hr />
+
+    <div id="output-div"></div>
+
+    <script>
+      var outputDiv = document.getElementById("output-div");
+      var showAllBtn = document.getElementById("show-all-btn");
+
+      var categoryBtn = document.getElementById("category-btn");
+      var categorySelect = document.getElementById("category-select");
+
+      var minPrice = document.getElementById("min-price");
+      var maxPrice = document.getElementById("max-price");
+      var priceBtn = document.getElementById("price-btn");
+
+      var buildings = [
+        {
+          name: "House",
+          price: 100,
+          imageName: "building-1.png",
+          category: "house",
+        },
+        {
+          name: "House",
+          price: 150,
+          imageName: "building-2.png",
+          category: "house",
+        },
+        {
+          name: "House",
+          price: 200,
+          imageName: "building-3.png",
+          category: "storage",
+        },
+        {
+          name: "House",
+          price: 250,
+          imageName: "building-4.png",
+          category: "tower",
+        },
+        {
+          name: "House",
+          price: 300,
+          imageName: "building-5.png",
+          category: "tower",
+        },
+        {
+          name: "House",
+          price: 1000,
+          imageName: "building-6.png",
+          category: "storage",
+        },
+      ];
+
+      function showAllBuildings() {
+        outputDiv.innerHTML = "";
+        for (var i = 0; i < buildings.length; i++) {
+          outputDiv.innerHTML += `<img src="images/${buildings[i].imageName}"/>`;
+        }
+      }
+      showAllBtn.onclick = showAllBuildings;
+
+      function showCatagory(type) {
+        outputDiv.innerHTML = "";
+        var amount = 0;
+        for (var i = 0; i < buildings.length; i++) {
+          if (type == buildings[i].category) {
+            outputDiv.innerHTML += `<img src="images/${buildings[i].imageName}"/>`;
+            amount += 1;
+          }
+        }
+        outputDiv.innerHTML =
+          `<p> Det er ${amount} greier i denne kategorien</p>` +
+          outputDiv.innerHTML;
+      }
+      categoryBtn.onclick = function () {
+        showCatagory(categorySelect.value);
+      };
+
+      function showPrice(minPrice, maxPrice) {
+        outputDiv.innerHTML = "";
+        amount = 0;
+        if (isNaN(minPrice) === true || isNaN(maxPrice) === true) {
+          alert("det du skrev inn ble ikke godtatt, prøv på nytt");
+        } else {
+          for (var i = 0; i < buildings.length; i++) {
+            if (
+              minPrice <= buildings[i].price &&
+              maxPrice >= buildings[i].price
+            ) {
+              outputDiv.innerHTML += `<img src="images/${buildings[i].imageName}"/>`;
+              amount += 1;
+            }
+          }
+        }
+        outputDiv.innerHTML =
+          `<p> Det er ${amount} greier i denne pris rangen(?)</p>` +
+          outputDiv.innerHTML;
+      }
+      priceBtn.onclick = function () {
+        showPrice(parseInt(minPrice.value), parseInt(maxPrice.value));
+      };
+    </script>
+  </body>
+</html>

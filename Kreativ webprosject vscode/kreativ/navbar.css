@@ -1,0 +1,41 @@
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  animation-name: rainbow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.nav-list-item {
+  float: left;
+}
+
+.nav-tag {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-tag:hover {
+  background-color: rgb(0, 0, 0);
+}
+.overskrift {
+  text-align: center;
+  background-color: rgb(0, 0, 200);
+}
+
+@keyframes rainbow {
+  0% {
+    background-color: blue;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: yellow;
+  }
+}

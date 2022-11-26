@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 1</title>
+    <link rel="stylesheet" type="text/css" href="css/oppgave1.css" />
+  </head>
+  <body>
+    <!-- Det er lov å endre/legge til HTML -->
+
+    <h1>Modern Art Maker</h1>
+
+    <label>Bredde</label>
+    <input id="width-txt" type="text" />
+
+    <label>Høyde</label>
+    <input id="height-txt" type="text" />
+
+    <hr />
+
+    <label>Farge</label>
+    <input id="background-color-txt" type="text" />
+
+    <hr />
+
+    <label>Posisjon fra venstre (left)</label>
+    <input id="left-txt" type="text" />
+
+    <label>Posisjon fra toppen (top)</label>
+    <input id="top-txt" type="text" />
+
+    <hr />
+
+    <input id="add-box-btn" type="button" value="Legg til" />
+    <input id="remove-btn" type="button" value="Remove" />
+
+    <p id="status-p">Antall bokser lagt til: 0</p>
+
+    <div id="output-div"></div>
+
+    <script>
+      var outputDiv = document.getElementById("output-div");
+      var addBoxBtn = document.getElementById("add-box-btn");
+      var removeBtn = document.getElementById("remove-btn");
+      var statusP = document.getElementById("status-p");
+      var amount = 0;
+
+      var widthInput = document.getElementById("width-txt");
+      var heightInput = document.getElementById("height-txt");
+      var backgroundColorInput = document.getElementById(
+        "background-color-txt"
+      );
+      var leftInput = document.getElementById("left-txt");
+      var topInput = document.getElementById("top-txt");
+
+      function addBox() {
+        var width = widthInput.value;
+        var height = heightInput.value;
+        var backgroundColor = backgroundColorInput.value;
+        var left = leftInput.value;
+        var top = topInput.value;
+
+        outputDiv.innerHTML += `<div style="width: ${width}px; height:${height}px; background-color:${backgroundColor}; left:${left}px; top:${top}px;"></div>`;
+        amount += 1;
+        statusP.innerHTML = `Antall bokser lagt til: ${amount}`;
+      }
+
+      addBoxBtn.onclick = addBox;
+
+      function removeBoxes() {
+        outputDiv.innerHTML = "";
+        amount = 0;
+        statusP.innerHTML = `Antall bokser lagt til: ${amount}`;
+      }
+      removeBtn.onclick = removeBoxes;
+    </script>
+  </body>
+</html>
